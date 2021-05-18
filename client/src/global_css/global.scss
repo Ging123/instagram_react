@@ -1,0 +1,26 @@
+//COLORS VARIABLE
+$main-background-gray:#fafafa;
+$gray-for-container-border:#dbdbdb;
+$main-blue:#0095f6;
+
+//MIXING OF TEXTS 
+@mixin text($bold:500, $color:black, $size:1.4rem) {
+  font-weight:$bold;
+  color:$color;
+  font-size:$size;
+}
+
+//SOME MAIN TAGS STYLE
+* {
+  box-sizing:border-box;
+  margin:0;
+  font-family:arial;
+}
+
+html {
+  font-size:62.5%;
+}
+
+body {
+  background:$main-background-gray;
+}

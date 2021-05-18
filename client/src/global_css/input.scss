@@ -1,0 +1,13 @@
+@import "./global.scss";
+
+.default-input {
+  padding:10px;
+  background-color:$main-background-gray;
+  outline:none;
+  border:.1px solid $gray-for-container-border;
+  border-radius:1px;
+
+  &:focus {
+    border:.1px solid gray;
+  }
+}

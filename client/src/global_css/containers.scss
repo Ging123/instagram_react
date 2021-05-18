@@ -1,0 +1,55 @@
+@import "./global.scss";
+@import "./position_manipulator.scss";
+
+//MIXING OF CONTAINERS 
+@mixin flex-container($flex-flow:row, $justify-content:none, $align-items:none) {
+  display:flex;
+  flex-flow:$flex-flow;
+  justify-content:$justify-content;
+  align-items:$align-items;
+}
+
+@mixin container-position($position:relative, $top:0px, $left:0px) {
+  position:$position;
+  top:$top;
+  left:$left;
+}
+
+//CONTAINERS STYLE
+.flex-column, .flex-row {
+  display:flex;
+}
+
+.flex-row {
+  flex-flow:row;
+}
+
+.flex-column {
+  flex-flow:column;
+}
+
+.main-page-container  { 
+  @include flex-container(column);
+  width:360px;
+
+  .container {
+    background:white;
+    padding:20px 40px;
+    border:.1px solid $gray-for-container-border;
+    margin-bottom:10px;
+    border-radius:1px;
+  }
+
+  .container:first-child {
+    position:relative;
+
+    .instagram-logo {
+      @include align-position-to-center(relative, false, true);
+      width:175px;
+    }
+  }
+
+  .container:first-child ~ .container {
+    text-align:center;
+  }
+}

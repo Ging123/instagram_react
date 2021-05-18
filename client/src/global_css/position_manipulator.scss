@@ -1,0 +1,28 @@
+@mixin align-position-to-center($position:relative, $align-eixo-y:true,
+$align-eixo-x:true) {
+  position:$position;
+  $top:validateIfMustAlign($align-eixo-y);
+  $left:validateIfMustAlign($align-eixo-x);
+  top:$top;
+  left:$left;
+  transform:translateY(turnNumberNegative($top));
+  transform:translateX(turnNumberNegative($left));
+}
+
+@function validateIfMustAlign($eixo-to-validate:true) {
+  $result:null;
+  @if $eixo-to-validate == true {$result:50%;}
+  @return $result;
+} 
+
+@function turnNegative($number:0) {
+  @return $number - $number - $number;
+}
+
+@function turnNumberNegative($number:0) {
+  $new-number:null;
+  @if $number != null {
+    @if $number > 0 {$new-number:turnNegative($number);}
+  }
+  @return $new-number;
+}
