@@ -1,35 +1,30 @@
 @import "./global.scss";
 @import "./position_manipulator.scss";
 
-//MIXING OF CONTAINERS 
-@mixin flex-container($flex-flow:row, $justify-content:none, $align-items:none) {
+//MIXINGS 
+@mixin set-flex-container($flex-flow:row, $justify-content:none, $align-items:none) {
   display:flex;
   flex-flow:$flex-flow;
   justify-content:$justify-content;
   align-items:$align-items;
 }
 
-@mixin container-position($position:relative, $top:0px, $left:0px) {
-  position:$position;
-  top:$top;
-  left:$left;
-}
-
 //CONTAINERS STYLE
-.flex-column, .flex-row {
-  display:flex;
-}
+.flex-column, .flex-row { display:flex; }
 
-.flex-row {
-  flex-flow:row;
-}
+.flex-row { flex-flow:row; }
 
-.flex-column {
-  flex-flow:column;
-}
+.flex-column { flex-flow:column; }
 
-.main-page-container  { 
-  @include flex-container(column);
+.text-align-center {text-align:center;}
+
+.smaller-margin-bottom { margin-bottom:5px; }
+.small-margin-bottom { margin-bottom:10px; }
+.margin-bottom { margin-bottom:15px; }
+.big-margin-bottom { margin-bottom:20px;}
+
+.login-or-singin-container { 
+  @include set-flex-container(column);
   width:360px;
 
   .container {
@@ -46,10 +41,41 @@
     .instagram-logo {
       @include align-position-to-center(relative, false, true);
       width:175px;
+      margin-bottom:30px;
     }
   }
 
   .container:first-child ~ .container {
     text-align:center;
+  }
+}
+
+.or-and-line-container {
+  @include set-flex-container(row, center, center);
+}
+
+.or-and-line-container > span {
+  @include set-text(600, #c4c4c4);
+  padding:0px 20px;
+}
+
+.line {
+  border-top:.1px solid #c9c7c7;
+  width:50%;
+}
+
+.get-the-app-container {
+  position:relative;
+  margin-top:10px;
+  font-size:1.4rem;
+}
+
+.store-image {
+  width:136px;
+  margin-right:8px;
+  cursor:pointer;
+
+  &:active {
+    opacity:0.8;
   }
 }

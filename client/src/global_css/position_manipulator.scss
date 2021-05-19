@@ -1,28 +1,24 @@
-@mixin align-position-to-center($position:relative, $align-eixo-y:true,
-$align-eixo-x:true) {
+@mixin align-position-to-center($position:absolute, $must-align-eixo-y:true,
+$must-align-eixo-x:true) {
   position:$position;
-  $top:validateIfMustAlign($align-eixo-y);
-  $left:validateIfMustAlign($align-eixo-x);
+  $top:validateIfMustAlign($must-align-eixo-y);//this value will be 50% if true
+  $left:validateIfMustAlign($must-align-eixo-x);//this value will be 50% if true
   top:$top;
   left:$left;
-  transform:translateY(turnNumberNegative($top));
-  transform:translateX(turnNumberNegative($left));
+  transform:translateY(returnNegative50Porcent($top));
+  transform:translateX(returnNegative50Porcent($left));
 }
 
-@function validateIfMustAlign($eixo-to-validate:true) {
+@function validateIfMustAlign($this-eixo-must-be-align:true) {
   $result:null;
-  @if $eixo-to-validate == true {$result:50%;}
+  @if $this-eixo-must-be-align {$result:50%;}
   @return $result;
 } 
 
-@function turnNegative($number:0) {
-  @return $number - $number - $number;
-}
-
-@function turnNumberNegative($number:0) {
-  $new-number:null;
+@function returnNegative50Porcent($number:0) {
+  $negative50Porcent:null;
   @if $number != null {
-    @if $number > 0 {$new-number:turnNegative($number);}
+    @if $number == 50% {$negative50Porcent:-50%;}
   }
-  @return $new-number;
+  @return $negative50Porcent;
 }

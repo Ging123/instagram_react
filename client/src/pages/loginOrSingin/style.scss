@@ -4,13 +4,13 @@
 @import "../../global_css/input.scss";
 
 /*container*/
-#login-or-singin-container {
-  @include flex-container(row, center, center);
+#page-container {
+  @include set-flex-container(row, center, center);
   position:relative;
   width:100%;
   height:100%;
 
-  #cellphone-image-container {
+  #cellphone-container {
 
   }
 
@@ -19,20 +19,40 @@
     .container {
 
       .default-input {
-        margin-bottom:5px;
+        
       }
       
     }
   }
 }
 
+#login-with-facebook-container {
+  @include set-text(600, $dark-blue, 1.4rem, center);
+  margin-top:20px;
+  cursor:pointer;
+
+  &:active {
+    opacity:0.8;
+  }
+}
+
 /*text*/
+#forgot-password {
+  @include set-text(500, $dark-blue, 1.2rem, center);
+  margin-top:20px;
+  cursor:pointer;
+
+  &:active {
+    opacity:0.8;
+  }
+}
+
 #singup-text {
   font-size:1.4rem;
 }
 
 #singup-text::after {
-  @include text(600, $main-blue);
+  @include set-text(600, $main-blue);
   content:" Sign up";
   cursor:pointer;
 }

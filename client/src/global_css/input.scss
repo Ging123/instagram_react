@@ -2,7 +2,7 @@
 
 .default-input {
   padding:10px;
-  background-color:$main-background-gray;
+  background:$main-background-gray;
   outline:none;
   border:.1px solid $gray-for-container-border;
   border-radius:1px;
@@ -10,4 +10,22 @@
   &:focus {
     border:.1px solid gray;
   }
+}
+
+.main-button {
+  @include set-text(600, white);
+  padding:8px;
+  background:$main-blue;
+  border-radius:3px;
+  border:none;
+  cursor:pointer;
+  outline:none;
+
+  &:hover { 
+    filter:brightness(96%); 
+  }
+
+  &:active { 
+    filter:brightness(92%);
+   }
 }

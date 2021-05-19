@@ -2,12 +2,14 @@
 $main-background-gray:#fafafa;
 $gray-for-container-border:#dbdbdb;
 $main-blue:#0095f6;
+$dark-blue:#385185;
 
 //MIXING OF TEXTS 
-@mixin text($bold:500, $color:black, $size:1.4rem) {
+@mixin set-text($bold:500, $color:black, $size:1.4rem, $text-align:none) {
   font-weight:$bold;
   color:$color;
   font-size:$size;
+  text-align:$text-align;
 }
 
 //SOME MAIN TAGS STYLE
@@ -23,4 +25,10 @@ html {
 
 body {
   background:$main-background-gray;
+}
+
+/*ICONES AND TEXT STYLE*/
+.facebook-icone {
+  @include set-text(600, $dark-blue,2rem);
+  margin:0px 3px;
 }
