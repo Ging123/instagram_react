@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './style.scss';
 import logo from '../../assets/Instagram-Logo.png'
-import {Or, GetTheApp} from '../../components/loginOrSingin/index'; 
+import {Or, GetTheApp} from '../../components/containers'; 
+import {DefaultInput} from '../../components/inputs';
 
 const LoginOrSingin = () => {
   document.title = "Instagram";
@@ -19,17 +20,18 @@ const LoginOrSingin = () => {
         <div className="container">
           <img src={logo} alt={altMensage} className="instagram-logo"/>
           <form className="flex-column small-margin-bottom">
-            <input 
-              type="text"
+            <DefaultInput
               value={nameOrNumber}
-              onChange={(e) => setNameOrNumber(e.target.value)}
-              className="default-input smaller-margin-bottom"
+              onChange={setNameOrNumber}
+              classOfContainer="smaller-margin-bottom"
+              placeholder="Phone number, username, or email"
             />
-            <input
+            <DefaultInput
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="default-input small-margin-bottom"
+              onChange={setPassword}
+              classOfContainer="smaller-margin-bottom"
+              placeholder="password"
             />
             <input
               type="submit"

@@ -1,4 +1,4 @@
-import LoginOrSingin from "./pages/loginOrSingin/index";
+import LoginOrSingin from "./pages/login/index";
 
 function App() {
   return (

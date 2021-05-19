@@ -1,16 +1,21 @@
 @import "./global.scss";
 
+//INPUTS STYLES
 .default-input {
-  padding:10px;
   background:$main-background-gray;
   outline:none;
   border:.1px solid $gray-for-container-border;
   border-radius:1px;
+  width:100%;
 
   &:focus {
     border:.1px solid gray;
   }
 }
+
+.text-up { padding:10px; }
+
+.text-down { padding:17px 10px 3px 10px; }
 
 .main-button {
   @include set-text(600, white);
@@ -28,4 +33,24 @@
   &:active { 
     filter:brightness(92%);
    }
+}
+
+//PLACEHOLDER STYLES
+.placeholder {
+  position:absolute;
+  left:11px;
+  transform:translateY(-50%);
+  pointer-events:none;
+  color:gray;
+  transition:top .2s;
+}
+
+.position-up {
+  top:10px;
+  font-size:1rem;
+}
+
+.position-down {
+  top:50%;
+  font-size:1.4rem;
 }
