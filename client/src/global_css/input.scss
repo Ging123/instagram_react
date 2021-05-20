@@ -14,8 +14,10 @@
 }
 
 .text-up { padding:10px; }
+.text-up.input-password { padding:10px 50px 10px 10px; }
 
 .text-down { padding:17px 10px 3px 10px; }
+.text-down.input-password { padding:17px 50px 3px 10px; }
 
 .main-button {
   @include set-text(600, white);
@@ -53,4 +55,13 @@
 .position-down {
   top:50%;
   font-size:1.4rem;
+}
+
+//SHOW AND HIDE BUTTON
+.show-and-hide {
+  @include set-text(600);
+  position:absolute;
+  top:10px;
+  right:10px;
+  cursor:pointer;
 }

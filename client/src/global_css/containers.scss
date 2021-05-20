@@ -10,6 +10,8 @@
 }
 
 //CONTAINERS STYLE
+.invisible { display:none; }
+
 .flex-column, .flex-row { display:flex; }
 
 .flex-row { flex-flow:row; }

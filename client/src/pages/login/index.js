@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './style.scss';
 import logo from '../../assets/Instagram-Logo.png'
-import {Or, GetTheApp} from '../../components/containers'; 
-import {DefaultInput} from '../../components/inputs';
+import {Or, GetTheApp} from './components/containers'; 
+import DefaultInput from '../../global_components/DefaultInput';
 
 const LoginOrSingin = () => {
   document.title = "Instagram";
