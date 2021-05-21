@@ -1,3 +1,4 @@
+import {useHistory} from 'react-router-dom';
 import logo from '../../../assets/Instagram-Logo.png';
 import LoginForm from './LoginForm';
 import {Or} from '../../../global_components/containers';
@@ -20,9 +21,13 @@ const FirstWhiteContainer = () => {
 }
 
 const SecondWhiteContainer = () => {
+  const history = useHistory();
+  
   return (
     <div className="container">
-      <span id="singup-text">Don't have an account?</span>
+      <span id="singup-text">Don't have an account?
+      <span onClick={() => history.push("/singin")}>Sign up</span>
+    </span>
     </div>
   )
 }

@@ -4,14 +4,6 @@
 @import "../../global_css/input.scss";
 
 /*container*/
-#page-container {
-  @include set-flex-container(row, center, center);
-  position:relative;
-  width:100%;
-  height:100%;
-  padding-top:40px;
-}
-
 #cellphone-container {
   position:relative;
   width:380px;
@@ -68,12 +60,11 @@
 
 #singup-text {
   font-size:1.4rem;
-}
 
-#singup-text::after {
-  @include set-text(600, $main-blue);
-  content:" Sign up";
-  cursor:pointer;
+  span {
+    @include set-text(600, $main-blue);
+    cursor:pointer;
+  }
 }
 
 @media (max-width:846px) {

@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import cellphone from '../../../assets/cellphone.png';
 import cellphoneBackgroun1 from '../../../assets/cellphone_background1.jpg';
 import cellphoneBackgroun2 from '../../../assets/cellphoneBackground2.jpg';
@@ -8,6 +9,11 @@ import cellphoneBackgroun5 from '../../../assets/cellphoneBackgroun5.jpg';
 var currentImageIndex = 0;
 
 const Cellphone = () => {
+  useEffect(() => {
+    const loop = setInterval(changeCellphoneBackground,6000);
+    return (() => {clearInterval(loop);});
+  });
+
   const alt = "it was't possible to load this image";
 
   return (
@@ -49,6 +55,6 @@ function setNextImage(imageLength) {
   if(currentImageIndex >= imageLength) currentImageIndex = 0;
 }
 
-setInterval(changeCellphoneBackground, 5000);
+
 
 export default Cellphone;

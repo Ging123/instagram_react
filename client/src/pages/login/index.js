@@ -7,7 +7,7 @@ import {FirstWhiteContainer, SecondWhiteContainer} from './components/WhiteConta
 const LoginOrSingin = () => {
   document.title = "Instagram";
   return (
-    <section id="page-container">
+    <>
       <Cellphone/>
       
       <div className="login-or-singin-container">
@@ -15,7 +15,8 @@ const LoginOrSingin = () => {
         <SecondWhiteContainer/>
         <GetTheApp/>
       </div>
-    </section>
+      
+    </>
   )
 }
 

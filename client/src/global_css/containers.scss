@@ -27,6 +27,14 @@
 .margin-bottom { margin-bottom:15px; }
 .big-margin-bottom { margin-bottom:20px;}
 
+#page-container {
+  @include set-flex-container(row, center, center);
+  position:relative;
+  width:100%;
+  height:100%;
+  padding-top:40px;
+}
+
 .login-or-singin-container { 
   @include set-flex-container(column);
   width:360px;

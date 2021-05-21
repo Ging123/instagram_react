@@ -1,9 +1,11 @@
-import LoginOrSingin from "./pages/login/index";
+import SwitchRoutes from './SwitchRoutes';
 
 function App() {
   return (
     <>
-      <LoginOrSingin/>
+    <section id="page-container">
+      <SwitchRoutes/>
+    </section>
     </>
   );
 }
