@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../global_css/containers.scss';
-import appStoreImg from '../../../assets/app-store.png';
-import googlePlayImg from '../../../assets/google-play.png';
+import '../global_css/containers.scss';
+import appStoreImg from '../assets/app-store.png';
+import googlePlayImg from '../assets/google-play.png';
 
 const altMensage = "it wasn't possible to load this image";
 
