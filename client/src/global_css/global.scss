@@ -12,6 +12,20 @@ $dark-blue:#385185;
   text-align:$text-align;
 }
 
+/*TEXT STYLE*/
+.bold {
+  font-weight:600;
+}
+
+.link-text {
+  color:$main-blue;
+  cursor:pointer;
+  
+  &:active {
+    opacity:0.7;
+  }
+}
+
 //SOME MAIN TAGS STYLE
 * {
   box-sizing:border-box;

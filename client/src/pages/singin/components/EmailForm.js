@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import DefaultInput from '../../../global_components/DefaultInput';
 
-const EmailForm = () => {
+const EmailForm = ({setFirstFormIsOpen}) => {
 
   const [emailOrNumber, setEmailOrNumber] = useState("");
   const [fullname, setFullname] = useState("");
@@ -9,7 +9,7 @@ const EmailForm = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <form>
+    <form onSubmit={(e) => {validateDataSend(e, setFirstFormIsOpen)}}>
       <DefaultInput
         value={emailOrNumber}
         onChange={setEmailOrNumber}
@@ -45,12 +45,10 @@ const EmailForm = () => {
 }
 
 
-const DateForm = () => {
-  return (
-    <>
-      
-    </>
-  )
+function validateDataSend(e, setFirstFormIsOpen) {
+  e.preventDefault();
+  setFirstFormIsOpen(false);
 }
 
-export {EmailForm, DateForm}
+
+export default EmailForm;

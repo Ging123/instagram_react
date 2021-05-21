@@ -35,3 +35,34 @@
     margin-right:7px;
   }
 }
+
+#cake-image {
+  width:90px;
+}
+
+#why-need-birthday-text {
+  text-align:center;
+  margin-top:3px;
+  margin-bottom:15px;
+}
+
+#date-container {
+  color:gray;
+  
+  select {
+    padding:10px;
+    margin-right:5px;
+    border:.1px solid $gray-for-container-border;
+    outline:none;
+  }
+
+  #month-select { width:39%; }
+  #day-select { width:25%; }
+  #year-select { width:30%; }
+}
+
+.small-text {
+  color:gray;
+  text-align:center;
+  font-size:1.2rem;
+}
