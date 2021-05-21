@@ -3,6 +3,7 @@ $main-background-gray:#fafafa;
 $gray-for-container-border:#dbdbdb;
 $main-blue:#0095f6;
 $dark-blue:#385185;
+$main-red:#ed4956;
 
 //MIXING OF TEXTS 
 @mixin set-text($bold:500, $color:black, $size:1.4rem, $text-align:none) {
@@ -13,6 +14,12 @@ $dark-blue:#385185;
 }
 
 /*TEXT STYLE*/
+.erro-text {
+  color:$main-red;
+  font-size:1.4rem;
+  text-align:center;
+}
+
 .bold {
   font-weight:600;
 }

@@ -1,15 +1,29 @@
-const DateForm = () => {
+import axios from 'axios';
+import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
+
   const month = ["January", "February", "March", "April", "May", "June", 
   "July", "August", "September", "October", "November", "December"];
   const day = getDays();
   const year = getYears();
 
+const DateForm = () => {
+
+  const history = useHistory();
+  const [hasAnErro, setErro] = useState("");
+
   return (
-    <form className="big-margin-bottom">
+    <form 
+      className="big-margin-bottom"
+      onSubmit={(e) => {
+        e.preventDefault();
+        validateDate(setErro, history);
+      }}
+    >
       <div id="date-container" className="margin-bottom">
-        <select id="month-select">{month.map(createOption)}</select>
-        <select id="day-select">{day.map(createOption)}</select>
-        <select id="year-select">{year.map(createOption)}</select>
+        <select  id="month-select">{month.map(createOption)}</select>
+        <select  id="day-select">{day.map(createOption)}</select>
+        <select  id="year-select">{year.map(createOption)}</select>
       </div>
       <div className="small-text big-margin-bottom">
         You need to enter the date you were born
@@ -18,6 +32,9 @@ const DateForm = () => {
         Use your own birthday, even if this account is for a business, 
         a pet, or something else
       </div>
+      
+      {hasAnErro !== "" && <p className="erro-text margin-bottom">{hasAnErro}</p>}
+
       <input 
         type="submit"
         value="next"
@@ -53,6 +70,77 @@ function getCurrentYear() {
   const d = new Date();
   const year = d.getFullYear();
   return year;
+}
+
+
+function getCurrentMonth() {
+  const d = new Date();
+  return d.getMonth();
+}
+
+
+function getCurrentDay() {
+  const d = new Date();
+  return d.getDate();
+}
+
+
+function validateDate(setErro, history) {
+  const indexOfDay = document.getElementById("day-select").value;
+  const indexOfMonth = document.getElementById("month-select").value;
+  const indexOfYear = document.getElementById("year-select").value;
+  const erroInFrontEnd = validatetAge(indexOfDay, indexOfMonth, indexOfYear);
+  if(erroInFrontEnd === "") {
+    return validateDataInServer(setErro, indexOfDay, indexOfMonth, indexOfYear, 
+    history);
+  }
+  setErro(erroInFrontEnd);
+}
+
+
+function validatetAge(indexOfDay, indexOfMonth, indexOfYear) {
+  const minYear = getCurrentYear() - 13;
+  if(minYear < year[indexOfYear]) return "you have to be older than 13";
+  if(minYear > year[indexOfYear]) return "";
+  if(minYear === year[indexOfYear]) return validateMonth(indexOfDay, indexOfMonth);
+}
+
+
+function validateMonth(indexOfDay, indexOfMonth) {
+  const currentMonth = getCurrentMonth();
+  if(currentMonth > indexOfMonth) return "";
+  if(currentMonth < indexOfMonth) return "you have to be older than 13";
+  if(currentMonth == indexOfMonth) {return validateDay(indexOfDay);}
+}
+
+
+function validateDay(indexOfDay) {
+  console.log('oikj')
+  const currentDay = getCurrentDay();
+  if(currentDay >= indexOfDay) return "";
+  return "you have to be older than 13";
+}
+
+
+function validateDataInServer(setErro, indexOfDay, indexOfMonth, indexOfYear, 
+  history) {
+  //Envia data de nascimento para o usuario 
+
+  /*Deve-se retornar uma string que retorna vazia se o usuario tiver mais de 
+  13 anos ou retorna com um texto dizendo "you have to be older than 13" */
+
+  /*Caso esses dados sejam válidos também, deve-se registrar o usuario no
+  banco de dados */
+
+  const user = {
+    day:day[indexOfDay],
+    month:month[indexOfMonth],
+    year:year[indexOfYear]
+  }
+  axios.post("", user).then((erro) => {
+    if(erro === "") return history.push("/");
+    setErro(erro);
+  });
 }
 
 export default DateForm;
