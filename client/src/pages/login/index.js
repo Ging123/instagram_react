@@ -4,7 +4,7 @@ import {GetTheApp} from '../../global_components/containers';
 import Cellphone from './components/Cellphone';
 import {FirstWhiteContainer, SecondWhiteContainer} from './components/WhiteContainers';
 
-const LoginOrSingin = () => {
+const Login = () => {
   document.title = "Instagram";
   return (
     <>
@@ -20,4 +20,4 @@ const LoginOrSingin = () => {
   )
 }
 
-export default LoginOrSingin;
+export default Login;

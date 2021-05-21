@@ -1,0 +1,37 @@
+@import "../../global_css/global.scss";
+@import "../../global_css/input.scss";
+
+#sing-up-to-see-text {
+  @include set-text(600, gray, 1.6rem, center);
+  margin-top:-10px;
+  margin-bottom:15px;
+}
+
+#terms-mensage {
+  @include set-text(500, gray, 1.3rem, center);
+  margin-top:15px;
+  margin-bottom:20px;
+
+  a {
+    color:gray;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+  }
+}
+
+#log-in-text {
+  font-size:1.4rem;
+
+  span {
+    color:$main-blue;
+    cursor:pointer;
+  }
+}
+
+.main-button {
+  i {
+    color:white;
+    margin-right:7px;
+  }
+}
