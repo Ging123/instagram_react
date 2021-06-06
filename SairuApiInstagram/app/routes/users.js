@@ -14,11 +14,9 @@ router.post("/register", async (req, res) => {
 
   try {
     await user.save();
-    res.status(200).json(user);
+    res.send(user);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Error registering new user please try again." });
+    res.send({ error: "Error registering new user please try again." });
   }
 });
 
@@ -27,19 +25,19 @@ router.post("/login", async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      res.status(401).json({ error: "email incorrect" });
+      res.send({ error: "email incorrect" });
     } else {
       user.isCorrectPassword(password, function (err, same) {
         if (!same) {
-          res.status(401).json({ error: "email incorrect" });
+          res.send({ error: "email incorrect" });
         } else {
           const token = jwt.sign({ email }, secret, { expiresIn: "1d" });
-          res.json({ user: user, token: token });
+          res.send({ user: user, token: token });
         }
       });
     }
   } catch (error) {
-    res.status(500).json({ error: "Error login, try again" });
+    res.send({ error: "Error login, try again" });
   }
 });
 router.put("/", async function (req, res) {

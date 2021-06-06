@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
@@ -90,10 +89,7 @@ function validateDate(setErro, history) {
   const indexOfMonth = document.getElementById("month-select").value;
   const indexOfYear = document.getElementById("year-select").value;
   const erroInFrontEnd = validatetAge(indexOfDay, indexOfMonth, indexOfYear);
-  if(erroInFrontEnd === "") {
-    return validateDataInServer(setErro, indexOfDay, indexOfMonth, indexOfYear, 
-    history);
-  }
+  if(erroInFrontEnd === "") return history.push("/");
   setErro(erroInFrontEnd);
 }
 
@@ -110,7 +106,7 @@ function validateMonth(indexOfDay, indexOfMonth) {
   const currentMonth = getCurrentMonth();
   if(currentMonth > indexOfMonth) return "";
   if(currentMonth < indexOfMonth) return "you have to be older than 13";
-  if(currentMonth == indexOfMonth) {return validateDay(indexOfDay);}
+  if(currentMonth === indexOfMonth) {return validateDay(indexOfDay);}
 }
 
 
@@ -119,28 +115,6 @@ function validateDay(indexOfDay) {
   const currentDay = getCurrentDay();
   if(currentDay >= indexOfDay) return "";
   return "you have to be older than 13";
-}
-
-
-function validateDataInServer(setErro, indexOfDay, indexOfMonth, indexOfYear, 
-  history) {
-  //Envia data de nascimento para o usuario 
-
-  /*Deve-se retornar uma string que retorna vazia se o usuario tiver mais de 
-  13 anos ou retorna com um texto dizendo "you have to be older than 13" */
-
-  /*Caso esses dados sejam válidos também, deve-se registrar o usuario no
-  banco de dados */
-
-  const user = {
-    day:day[indexOfDay],
-    month:month[indexOfMonth],
-    year:year[indexOfYear]
-  }
-  axios.post("", user).then((erro) => {
-    if(erro === "") return history.push("/");
-    setErro(erro);
-  });
 }
 
 export default DateForm;

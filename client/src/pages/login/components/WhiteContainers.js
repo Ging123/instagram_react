@@ -3,13 +3,13 @@ import logo from '../../../assets/Instagram-Logo.png';
 import LoginForm from './LoginForm';
 import {Or} from '../../../global_components/containers';
 
-const FirstWhiteContainer = () => {
+const FirstWhiteContainer = ({setUser}) => {
   const altMensage = "it wasn't possible to load this image";
 
   return (   
     <div className="container">
       <img src={logo} alt={altMensage} className="instagram-logo"/>
-      <LoginForm/>
+      <LoginForm setUser={setUser}/>
       <Or/>
       <div id="login-with-facebook-container">
         <i className="fab fa-facebook-square facebook-icone"/>

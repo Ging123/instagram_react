@@ -91,31 +91,11 @@ function validateEmailOrNumber(emailOrNumber) {
 
 //METODO PARA O SERVIDOR
 function validateDataInServer(setFirstFormIsOpen, user, setErro) {
-  //É enviado um post para o servidor e é esperado que retorne uma string
- 
-  /*Essa string deverá conter o erro que o usuario fez no input, por exemplo
-  "o email já existe" ou "email inválido"*/
-  
-  /*Caso o usuario tenha digitado tudo corretamente essa string deve ser retornada
-  vazia ou seja "" */
-
-  /*O que será validado...
-
-  Email ou número: deve se anilizar se o email ou número é valido e se ele já 
-  existe no banco de dados
-
-  Username: Deve se verificar se o username já existe no sistema
-
-  fullname: Deve-se verificar se o fullname tem mais de uma letra
-
-  password: deve-se verificar se o password tem mais de 6 letras 
-
-  */
-  
-  //"user" é um objeto com os dados digitado nos inputs
-  axios.post("", user).then((erro) => {
-    if(erro === "") return setFirstFormIsOpen(false);
-    setErro(erro);
+  axios.post("http://localhost:5000/users/register", 
+  {name:user.fullname, email:user.emailOrNumber, password:user.password})
+  .then((result) => {
+    if(result.data.error !== undefined) setErro(result.data.error);
+    setFirstFormIsOpen(true);
   });
 }
 

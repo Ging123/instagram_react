@@ -9,16 +9,16 @@ const Singin = () => {
   const [firstFormIsOpen, setFirstFormIsOpen ] = useState(false);
 
   return (
-    <>
+    <section id="page-container">
       <div className="login-or-singin-container">
-        {firstFormIsOpen === true ? 
+        {firstFormIsOpen === false ? 
           (<WhiteContainerForEmail setFirstFormIsOpen={setFirstFormIsOpen}/>):
           (<WhiteContainerForDate setFirstFormIsOpen={setFirstFormIsOpen}/>)
         }
         <SecondWhiteContainer/>
         <GetTheApp/>
       </div>
-    </>
+    </section>
   )
 }
 
